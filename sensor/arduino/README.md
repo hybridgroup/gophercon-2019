@@ -20,6 +20,15 @@ Follow the instructions here:
 
 https://tinygo.org/getting-started/
 
+### TinyGo drivers
+
+To install the various drivers and other code dependencies run these commands:
+
+```
+go get -u tinygo.org/x/drivers
+go get -u github.com/eclipse/paho.mqtt.golang
+```
+
 ### Bossa
 
 In order to "flash", meaning to move the binary code from your computer to the Arduino, you must install the "bossac" command line utility whihc is part of BOSSA.
