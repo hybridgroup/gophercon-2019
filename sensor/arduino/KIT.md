@@ -3,37 +3,40 @@
 The IoT starter kits that we have at Gophercon consist of the following parts:
 
 ### Grove Buzzer
-![Arduino](./images/step0.png)
+![Kit](./images/kit/buzzer.png)
 
 ### Grove Button
-![Arduino](./images/step0.png)
+![Kit](./images/kit/button.png)
 
 ### Grove - Green LED
-![Arduino](./images/step0.png)
+![Kit](./images/kit/green-led.png)
 
 ### Grove - Blue LED
-![Arduino](./images/step0.png)
+![Kit](./images/kit/blue-led.png)
 
 ### Grove - Red LED
-![Arduino](./images/step0.png)
+![Kit](./images/kit/red-led.png)
 
-### Grove - Sounds Sensor
-![Arduino](./images/step0.png)
+### Grove - Sound Sensor
+![Kit](./images/kit/sound.png)
 
 ### Grove - 3-axis digital accelerometer
-![Arduino](./images/step0.png)
+![Kit](./images/kit/accel.png)
 
 ### Grove - Touch Sensor
-![Arduino](./images/step0.png)
+![Kit](./images/kit/touch.png)
 
 ### Grove - Light Sensor
-- Grove - Temperature Sensor
+![Kit](./images/kit/light.png)
+
+### Grove - Temperature Sensor
+![Kit](./images/kit/temp.png)
 
 ### Grove - Rotary Angle Sensor
-![Arduino](./images/step0.png)
+![Kit](./images/kit/rotary.png)
 
 ### Grove - Piezo Vibration Sensor
-![Arduino](./images/step0.png)
+![Kit](./images/kit/vibe.png)
 
 ### SSD1306 OLED Display
-![Arduino](./images/step0.png)
+![Kit](./images/kit/ssd1306.png)
