@@ -2,7 +2,7 @@
 
 ## Gophercar
 
-Golang DIYRobocars based on the Donkeycar hardware http://www.donkeycar.com/
+Golang [DIYRobocars](https://diyrobocars.com/) based on the Donkeycar hardware http://www.donkeycar.com/ but programmed using your favorite language.
 
 We will have a race track, with X cars available to be programmed for races, either human-steered or perhaps self-driving...
 
@@ -19,11 +19,13 @@ In additional to these drones to be to be coded/flown, we will also have Dualsho
 
 ## TinyGo IoT sensors
 
-We have brand new XXXX microcontrollers from AAAA to give away to the first 300 people at community day!
+We have brand new XXXX microcontroller boards from AAAA to give away to the first 300 people at community day!
 
 These can be programmed using TinyGo.
 
-There are 14 Grove sensor kits that you can use for the activity. Please return the sensor kits when you are done. The sensor kits must be shared, sorry we cannot give those away.
+There are 15 Grove sensor kits that you can use for the activity. 
+
+### Please return the Grove sensor kits when you are done. The sensor kits must be shared, sorry we cannot give those away
 
 ## Gopherbot
 
@@ -33,7 +35,7 @@ Check out https://github.com/hybridgroup/gopherbot for more info.
 
 ## Rovers
 
-We will have Sphero Ollie robots.
+We will have Sphero Ollie/SPRK+ robots that can be controlled via Bluetooth LE.
 
 ## Surprises
 
