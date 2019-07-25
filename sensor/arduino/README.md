@@ -2,7 +2,7 @@
 
 ## What you need
 
-    - Arduino or compatible microcontroller
+    - Arduino Nano33 IoT board
     - Grove IoT Starter Kit parts
     - Personal computer with Go 1.12+ and TinyGo installed, and a serial port.
 
@@ -51,6 +51,8 @@ One you have downloaded it, double click on the .dmg file to perform the install
 
 ## Connecting the Arduino to your computer
 
+![Arduino Nano33 IoT](https://store-cdn.arduino.cc/uni/catalog/product/cache/1/image/500x375/f8876a31b63532bbba4e781c30024a0a/a/b/abx00027_back.jpg)
+
 Plug the Arduino into your computer using a USB cable. There may be one provided in your starter kit.
 
 ## Running the code
@@ -85,22 +87,22 @@ Once the Arduino is flashed correctly, the built-in LED labeled "L" should start
 
 ![Arduino](./images/step1.png)
 
-- Connect the "Ground" pin on the Arduino to breadboard's blue ground rail (-) using a black jumper cable.
+- Connect one of the "Ground" pin on the Arduino to the breadboard's top left set of pins (-) using a black or brown jumper cable.
 
-- Connect the "3.3V" pin on the Arduino to breadboard's red power rail (+) using a red jumper cable.
+- Connect the "3.3V" pin on the Arduino to breadboard's top right (+) using a red jumper cable.
 
 - Plug the Grove blue LED into the provided cable with the Grove connector on one end, and the male jumpers on the other. Make sure the LED itself is plugged into the Grove board.
 
-- Connect the black male end of the Grove cable to the breadboard's blue ground rail (-) on the same side of the breadboard as the black "Ground" cable.
+- Connect the black male end of the Grove cable to the breadboard's top left set of pins (-).
 
-- Connect the red male end of the Grove cable to the breadboard's red power rail (+) on the same side of the breadboard as the red "3.3V" cable.
+- Connect the red male end of the Grove cable to the breadboard's top right (+) set of pins.
 
 - Connect the yellow male end of the Grove cable to pin D12 on the Arduino.
 
 Run the code.
 
 ```
-$ tinygo flash -t arduino ./sensor/arduino/step1/main.go
+$ tinygo flash -target arduino-nano33 ./sensor/arduino/step1/main.go
 ```
 
 You should see the blue LED blink.
@@ -111,16 +113,16 @@ You should see the blue LED blink.
 
 - Plug the Grove Button into a provided cable with the Grove connector on one end, and the male jumpers on the other.
 
-- Connect the black male end of the Grove cable to the breadboard's blue ground rail (-) on the same side of the breadboard as the black "Ground" cable.
+- Connect the black male end of the Grove cable to the breadboard's top left set of pins (-).
 
-- Connect the red male end of the Grove cable to the breadboard's red power rail (+) on the same side of the breadboard as the red "3.3V" cable.
+- Connect the red male end of the Grove cable to the breadboard's top right (+) set of pins.
 
 - Connect the yellow male end of the Grove cable to pin D11 on the Arduino.
 
 Run the code.
 
 ```
-$ tinygo flash -t arduino ./sensor/arduino/step2/main.go
+$ tinygo flash -target arduino-nano33 ./sensor/arduino/step2/main.go
 ```
 
 When you press the button, the blue LED should turn on.
@@ -131,16 +133,16 @@ When you press the button, the blue LED should turn on.
 
 - Plug the Grove greed LED into one of the provided cable with the Grove connector on one end, and the male jumpers on the other.
 
-- Connect the black male end of the Grove cable to the breadboard's blue ground rail (-) on the same side of the breadboard as the black "Ground" cable.
+- Connect the black male end of the Grove cable to the breadboard's top left set of pins (-).
 
-- Connect the red male end of the Grove cable to the breadboard's red power rail (+) on the same side of the breadboard as the red "3.3V" cable.
+- Connect the red male end of the Grove cable to the breadboard's top right (+) set of pins.
 
 - Connect the yellow male end of the Grove cable to pin D10 on the Arduino.
 
 Run the code.
 
 ```
-$ tinygo flash -t arduino ./sensor/arduino/step3/main.go
+$ tinygo flash -target arduino-nano33 ./sensor/arduino/step3/main.go
 ```
 
 The green LED should light up. When you press the button, the blue LED should turn on, and the green LED should turn off. When you release the button, the blue LED should turn off, and the green LED should turn on again.
