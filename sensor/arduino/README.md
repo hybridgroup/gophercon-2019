@@ -87,15 +87,15 @@ Once the Arduino is flashed correctly, the built-in LED labeled "L" should start
 
 ![Arduino](./images/step1.png)
 
-- Connect one of the "Ground" pin on the Arduino to the breadboard's top left set of pins (-) using a black or brown jumper cable.
+- Connect one of the "Ground" pins on the Arduino to the breadboard's ground rail (-) using a black or brown jumper cable.
 
-- Connect the "3.3V" pin on the Arduino to breadboard's top right (+) using a red jumper cable.
+- Connect the "3.3V" pin on the Arduino to the breadboard's power rail (+) using a red jumper cable.
 
 - Plug the Grove blue LED into the provided cable with the Grove connector on one end, and the male jumpers on the other. Make sure the LED itself is plugged into the Grove board.
 
-- Connect the black male end of the Grove cable to the breadboard's top left set of pins (-).
+- Connect the black male end of the Grove cable to the breadboard's ground rail (-).
 
-- Connect the red male end of the Grove cable to the breadboard's top right (+) set of pins.
+- Connect the red male end of the Grove cable to the breadboard's power rail (+).
 
 - Connect the yellow male end of the Grove cable to pin D12 on the Arduino.
 
@@ -113,9 +113,9 @@ You should see the blue LED blink.
 
 - Plug the Grove Button into a provided cable with the Grove connector on one end, and the male jumpers on the other.
 
-- Connect the black male end of the Grove cable to the breadboard's top left set of pins (-).
+- Connect the black male end of the Grove cable to the breadboard's ground rail (-).
 
-- Connect the red male end of the Grove cable to the breadboard's top right (+) set of pins.
+- Connect the red male end of the Grove cable to the breadboard's power rail (+).
 
 - Connect the yellow male end of the Grove cable to pin D11 on the Arduino.
 
@@ -131,7 +131,7 @@ When you press the button, the blue LED should turn on.
 
 ![Arduino](./images/step3.png)
 
-- Plug the Grove greed LED into one of the provided cable with the Grove connector on one end, and the male jumpers on the other.
+- Plug the Grove green LED into one of the provided cable with the Grove connector on one end, and the male jumpers on the other.
 
 - Connect the black male end of the Grove cable to the breadboard's top left set of pins (-).
 
@@ -151,12 +151,39 @@ The green LED should light up. When you press the button, the blue LED should tu
 
 ![Arduino](./images/step4.png)
 
-...
+- Plug the Grove touch sensor into one of the provided cables with the Grove connector on one end, and the male jumpers on the other.
+
+- Connect the black male end of the Grove cable to the breadboard's top left set of pins (-).
+
+- Connect the red male end of the Grove cable to the breadboard's top right (+) set of pins.
+
+- Connect the yellow male end of the Grove cable to pin D9 on the Arduino.
+
+- Plug the Grove speaker into one of the provided cables with the Grove connector on one end, and the male jumpers on the other.
+
+- Connect the black male end of the Grove cable to the breadboard's top left set of pins (-).
+
+- Connect the red male end of the Grove cable to the breadboard's top right (+) set of pins.
+
+- Connect the yellow male end of the Grove cable to pin D8 on the Arduino.
+
+Run the code.
+
+```
+$ tinygo flash -target arduino-nano33 ./sensor/arduino/step4/main.go
+```
 
 ### step5.go - Blue LED, Button, Green LED, Buzzer, Touch, Dial
 
 ![Arduino](./images/step5.png)
 
+- Plug the Grove dial into one of the provided cables with the Grove connector on one end, and the male jumpers on the other.
+
+- Connect the black male end of the Grove cable to the breadboard's top left set of pins (-).
+
+- Connect the red male end of the Grove cable to the breadboard's top right (+) set of pins.
+
+- Connect the yellow male end of the Grove cable to pin A0 on the Arduino.
 
 ### step6.go - Blue LED, Button, Green LED, Buzzer, Touch, Dial, Temperature, Red LED
 

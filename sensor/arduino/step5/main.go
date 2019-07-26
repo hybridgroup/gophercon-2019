@@ -8,11 +8,13 @@ import (
 )
 
 func main() {
+	machine.InitPWM()
+
 	blue := machine.D12
 	blue.Configure(machine.PinConfig{Mode: machine.PinOutput})
 
-	red := machine.D10
-	red.Configure(machine.PinConfig{Mode: machine.PinOutput})
+	green := machine.PWM{machine.D10}
+	green.Configure()
 
 	button := machine.D11
 	button.Configure(machine.PinConfig{Mode: machine.PinInput})
@@ -25,13 +27,16 @@ func main() {
 
 	bzr := buzzer.New(bzrPin)
 
+	dial := machine.ADC{machine.A0}
+	dial.Configure()
+
 	for {
+		green.Set(dial.Get())
+
 		if !button.Get() {
 			blue.Low()
-			red.High()
 		} else {
 			blue.High()
-			red.Low()
 		}
 
 		if touch.Get() {
