@@ -2,6 +2,9 @@
 
 The IoT starter kits that we have at Gophercon consist of the following parts:
 
+### White Breadboard
+![Kit](./images/kit/breadboard.png)
+
 ### Grove Buzzer
 ![Kit](./images/kit/buzzer.png)
 

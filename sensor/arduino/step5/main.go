@@ -41,7 +41,9 @@ func main() {
 		}
 
 		if touch.Get() {
-			bzr.Tone(buzzer.C3, buzzer.Quarter)
+			bzr.On()
+		} else {
+			bzr.Off()
 		}
 
 		time.Sleep(time.Millisecond * 10)

@@ -189,10 +189,21 @@ tinygo flash -target arduino-nano33 ./sensor/arduino/step4/main.go
 tinygo flash -target arduino-nano33 ./sensor/arduino/step5/main.go
 ```
 
-### step6.go - Blue LED, Button, Green LED, Buzzer, Touch, Dial, Temperature, Red LED
+### step6.go - Blue LED, Button, Green LED, Buzzer, Touch, Dial, OLED
 
 ![Arduino](./images/step6.png)
 
+- Connect a jumper wire from the "GND" pin on the breadboard next to the OLED display, to the breadboard's top left set of pins (-).
+
+- Connect a jumper wire from the "VCC" pin on the breadboard next to the OLED display, to the breadboard's top right (+) set of pins.
+
+- Connect a jumper wire from the "SCL" pin on the breadboard next to the OLED display, to the Arduino Nano33's A5 pin.
+
+- Connect a jumper wire from the "SDA" pin on the breadboard next to the OLED display, to the Arduino Nano33's A4 pin.
+
+```
+tinygo flash -target arduino-nano33 ./sensor/arduino/step6/main.go
+```
 
 ### step7.go - Blue LED, Button, Green LED, Buzzer, Touch, Dial, Temperature, Red LED, Sound Sensor
 
