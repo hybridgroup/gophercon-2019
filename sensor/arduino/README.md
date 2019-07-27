@@ -51,7 +51,7 @@ One you have downloaded it, double click on the .dmg file to perform the install
 
 ## Connecting the Arduino to your computer
 
-![Arduino Nano33 IoT](https://store-cdn.arduino.cc/uni/catalog/product/cache/1/image/500x375/f8876a31b63532bbba4e781c30024a0a/a/b/abx00027_back.jpg)
+![Arduino Nano33 IoT](./images/nano33pinmap.jpg)
 
 Plug the Arduino into your computer using a USB cable. There may be one provided in your starter kit.
 
