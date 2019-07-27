@@ -19,11 +19,13 @@ In additional to these drones to be to be coded/flown, we will also have Dualsho
 
 ## TinyGo IoT sensors
 
-We have brand new XXXX microcontroller boards from AAAA to give away to the first 300 people at community day!
+We have brand new  Arduino Nano33 IoT microcontroller boards to give away to the first 300 people at community day! 
+
+https://store.arduino.cc/nano-33-iot
 
 These can be programmed using TinyGo.
 
-There are 15 Grove sensor kits that you can use for the activity. 
+There are 15 Grove sensor kits that you can use for the activity.
 
 ### Please return the Grove sensor kits when you are done. The sensor kits must be shared, sorry we cannot give those away
 

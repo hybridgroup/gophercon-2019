@@ -27,6 +27,8 @@ To install the various drivers and other code dependencies run these commands:
 ```
 go get -u tinygo.org/x/drivers
 go get -u github.com/eclipse/paho.mqtt.golang
+go get -u github.com/conejoninja/tinydraw
+go get -u github.com/conejoninja/tinyfont
 ```
 
 ### Bossa
@@ -226,6 +228,8 @@ tinygo flash -target arduino-nano33 ./sensor/arduino/step4/main.go
 tinygo flash -target arduino-nano33 -port=$NANO33_DEV_PATH ./sensor/arduino/step4/main.go
 ```
 
+When you touch the touch sensor, the buzzer should emit a noise.
+
 ### step5.go - Blue LED, Button, Green LED, Buzzer, Touch, Dial
 
 ![Arduino](./images/step5.png)
@@ -248,6 +252,8 @@ tinygo flash -target arduino-nano33 ./sensor/arduino/step5/main.go
 tinygo flash -target arduino-nano33 -port=$NANO33_DEV_PATH ./sensor/arduino/step5/main.go
 ```
 
+Adjusting the dial sensor should control the brightness of the green LED.
+
 ### step6.go - Blue LED, Button, Green LED, Buzzer, Touch, Dial, OLED
 
 ![Arduino](./images/step6.png)
@@ -269,6 +275,11 @@ tinygo flash -target arduino-nano33 ./sensor/arduino/step6/main.go
 ```
 tinygo flash -target arduino-nano33 -port=$NANO33_DEV_PATH ./sensor/arduino/step6/main.go
 ```
+
+The dial should now case the OLED display to its current position. The OLED
+should also have two empty circles that will light up when you press the
+Button to light up the Blue LED and when you press the touch sensor
+respectively.
 
 ### step7.go - Blue LED, Button, Green LED, Buzzer, Touch, Dial, OLED, MQTT
 
