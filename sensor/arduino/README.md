@@ -69,6 +69,29 @@ Let's get started!
 
 ## Code
 
+### IMPORTANT! macOS-specific required steps (Linux users can ignore)
+The Linux and macOS device subsystems have subtle differences. **In order to talk to the Arduino board on a Mac**, you need to discover how macOS
+system has named it. Plug it in and follow these commands:
+
+```
+ls /dev | grep usb
+```
+
+Should produce entries like (you may have different numbers after
+`usbmodem`):
+
+```
+/dev/cu.usbmodem141201
+/dev/tty.usbmodem141201
+```
+
+Set the fully qualified path for the `tty` entry into an environment variable. We'll use this below in the macOS version of the steps.
+
+```sh
+export NANO33_DEV_PATH=/dev/{YOUR TTY USBMODEM ID}
+```
+
+
 ### step0.go - Built-in LED
 
 ![Arduino](./images/step0.png)
@@ -79,8 +102,14 @@ This tests that you can compile and flash your Arduino with TinyGo code, by blin
 
 Run the following command to compile your code, and flash it onto the Arduino:
 
+#### Linux
 ```
 tinygo flash -target arduino-nano33 ./sensor/arduino/step0/main.go
+```
+
+#### macOS
+```
+tinygo flash -target arduino-nano33 -port=$NANO33_DEV_PATH ./sensor/arduino/step0/main.go
 ```
 
 Once the Arduino is flashed correctly, the built-in LED labeled "L" should start to turn on and off once per second. Now everything is setup correctly and you are ready to continue.
@@ -103,8 +132,14 @@ Once the Arduino is flashed correctly, the built-in LED labeled "L" should start
 
 Run the code.
 
+#### Linux
 ```
 tinygo flash -target arduino-nano33 ./sensor/arduino/step1/main.go
+```
+
+#### macOS
+```
+tinygo flash -target arduino-nano33 -port=$NANO33_DEV_PATH ./sensor/arduino/step1/main.go
 ```
 
 You should see the blue LED blink.
@@ -123,8 +158,14 @@ You should see the blue LED blink.
 
 Run the code.
 
+#### Linux
 ```
 tinygo flash -target arduino-nano33 ./sensor/arduino/step2/main.go
+```
+
+#### macOS
+```
+tinygo flash -target arduino-nano33 -port=$NANO33_DEV_PATH ./sensor/arduino/step2/main.go
 ```
 
 When you press the button, the blue LED should turn on.
@@ -143,8 +184,14 @@ When you press the button, the blue LED should turn on.
 
 Run the code.
 
+#### Linux
 ```
 tinygo flash -target arduino-nano33 ./sensor/arduino/step3/main.go
+```
+
+#### macOS
+```
+tinygo flash -target arduino-nano33 -port=$NANO33_DEV_PATH ./sensor/arduino/step3/main.go
 ```
 
 The green LED should light up. When you press the button, the blue LED should turn on, and the green LED should turn off. When you release the button, the blue LED should turn off, and the green LED should turn on again.
@@ -171,8 +218,14 @@ The green LED should light up. When you press the button, the blue LED should tu
 
 Run the code.
 
+#### Linux
 ```
 tinygo flash -target arduino-nano33 ./sensor/arduino/step4/main.go
+```
+
+#### macOS
+```
+tinygo flash -target arduino-nano33 -port=$NANO33_DEV_PATH ./sensor/arduino/step4/main.go
 ```
 
 When you touch the touch sensor, the buzzer should emit a noise.
@@ -189,8 +242,14 @@ When you touch the touch sensor, the buzzer should emit a noise.
 
 - Connect the yellow male end of the Grove cable to pin A0 on the Arduino.
 
+#### Linux
 ```
 tinygo flash -target arduino-nano33 ./sensor/arduino/step5/main.go
+```
+
+#### macOS
+```
+tinygo flash -target arduino-nano33 -port=$NANO33_DEV_PATH ./sensor/arduino/step5/main.go
 ```
 
 Adjusting the dial sensor should control the brightness of the green LED.
@@ -207,8 +266,14 @@ Adjusting the dial sensor should control the brightness of the green LED.
 
 - Connect a jumper wire from the "SDA" pin on the breadboard next to the OLED display, to the Arduino Nano33's A4 pin.
 
+#### Linux
 ```
 tinygo flash -target arduino-nano33 ./sensor/arduino/step6/main.go
+```
+
+#### macOS
+```
+tinygo flash -target arduino-nano33 -port=$NANO33_DEV_PATH ./sensor/arduino/step6/main.go
 ```
 
 The dial should now case the OLED display to its current position. The OLED
