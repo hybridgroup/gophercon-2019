@@ -8,6 +8,7 @@ import (
 )
 
 func main() {
+	machine.InitADC()
 	machine.InitPWM()
 
 	blue := machine.D12

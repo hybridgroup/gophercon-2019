@@ -78,7 +78,7 @@ This tests that you can compile and flash your Arduino with TinyGo code, by blin
 Run the following command to compile your code, and flash it onto the Arduino:
 
 ```
-$ tinygo flash -target arduino-nano33 ./sensor/arduino/step0/main.go
+tinygo flash -target arduino-nano33 ./sensor/arduino/step0/main.go
 ```
 
 Once the Arduino is flashed correctly, the built-in LED labeled "L" should start to turn on and off once per second. Now everything is setup correctly and you are ready to continue.
@@ -102,7 +102,7 @@ Once the Arduino is flashed correctly, the built-in LED labeled "L" should start
 Run the code.
 
 ```
-$ tinygo flash -target arduino-nano33 ./sensor/arduino/step1/main.go
+tinygo flash -target arduino-nano33 ./sensor/arduino/step1/main.go
 ```
 
 You should see the blue LED blink.
@@ -122,7 +122,7 @@ You should see the blue LED blink.
 Run the code.
 
 ```
-$ tinygo flash -target arduino-nano33 ./sensor/arduino/step2/main.go
+tinygo flash -target arduino-nano33 ./sensor/arduino/step2/main.go
 ```
 
 When you press the button, the blue LED should turn on.
@@ -142,7 +142,7 @@ When you press the button, the blue LED should turn on.
 Run the code.
 
 ```
-$ tinygo flash -target arduino-nano33 ./sensor/arduino/step3/main.go
+tinygo flash -target arduino-nano33 ./sensor/arduino/step3/main.go
 ```
 
 The green LED should light up. When you press the button, the blue LED should turn on, and the green LED should turn off. When you release the button, the blue LED should turn off, and the green LED should turn on again.
@@ -170,7 +170,7 @@ The green LED should light up. When you press the button, the blue LED should tu
 Run the code.
 
 ```
-$ tinygo flash -target arduino-nano33 ./sensor/arduino/step4/main.go
+tinygo flash -target arduino-nano33 ./sensor/arduino/step4/main.go
 ```
 
 ### step5.go - Blue LED, Button, Green LED, Buzzer, Touch, Dial
@@ -184,6 +184,10 @@ $ tinygo flash -target arduino-nano33 ./sensor/arduino/step4/main.go
 - Connect the red male end of the Grove cable to the breadboard's top right (+) set of pins.
 
 - Connect the yellow male end of the Grove cable to pin A0 on the Arduino.
+
+```
+tinygo flash -target arduino-nano33 ./sensor/arduino/step5/main.go
+```
 
 ### step6.go - Blue LED, Button, Green LED, Buzzer, Touch, Dial, Temperature, Red LED
 
