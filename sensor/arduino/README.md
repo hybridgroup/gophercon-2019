@@ -40,9 +40,18 @@ In order to "flash", meaning to move the binary code from your computer to the A
 On Linux, install from source:
 
 ```
+sudo apt install \
+  libwxgtk3.0-dev
+  libreadline-dev
 git clone https://github.com/shumatech/BOSSA.git
 cd BOSSA
 make
+```
+
+Install Clang-8:
+
+```
+sudo apt install clang-8
 ```
 
 #### macOS
