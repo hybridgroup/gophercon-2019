@@ -205,24 +205,8 @@ tinygo flash -target arduino-nano33 ./sensor/arduino/step5/main.go
 tinygo flash -target arduino-nano33 ./sensor/arduino/step6/main.go
 ```
 
-### step7.go - Blue LED, Button, Green LED, Buzzer, Touch, Dial, Temperature, Red LED, Sound Sensor
+### step7.go - Blue LED, Button, Green LED, Buzzer, Touch, Dial, OLED, MQTT
 
 ![Arduino](./images/step7.png)
 
-
-### step8.go - Blue LED, Button, Green LED, Buzzer, Touch, Dial, Temperature, Red LED, Sound Sensor, Light Sensor
-
-![Arduino](./images/step8.png)
-
-
-### step9.go - Blue LED, Button, Green LED, Buzzer, Touch, Dial, Temperature, Red LED, Sound Sensor, Light Sensor
-
-![Arduino](./images/step9.png)
-
-### step10.go - Blue LED, Button, Green LED, Buzzer, Touch, Dial, Temperature, Red LED, Sound Sensor, Light Sensor, OLED
-
-![Arduino](./images/step10.png)
-
-### step11.go - Blue LED, Button, Green LED, Buzzer, Touch, Dial, Temperature, Red LED, Sound Sensor, Light Sensor, OLED, MQTT Server
-
-![Arduino](./images/step11.png)
+Still in progress...
