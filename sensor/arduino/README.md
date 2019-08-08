@@ -292,6 +292,4 @@ respectively.
 
 ### step7.go - Blue LED, Button, Green LED, Buzzer, Touch, Dial, OLED, MQTT
 
-![Arduino](./images/step7.png)
-
 Still in progress...
