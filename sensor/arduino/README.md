@@ -33,7 +33,7 @@ go get -u github.com/conejoninja/tinyfont
 
 ### Bossa
 
-In order to "flash", meaning to move the binary code from your computer to the Arduino, you must install the "bossac" command line utility whihc is part of BOSSA.
+In order to "flash", meaning to move the binary code from your computer to the Arduino, you must install the "bossac" command line utility which is part of BOSSA.
 
 #### Linux
 
