@@ -292,4 +292,19 @@ respectively.
 
 ### step7.go - Blue LED, Button, Green LED, Buzzer, Touch, Dial, OLED, MQTT
 
-Still in progress...
+![Arduino](./images/step6.png)
+
+In this step we will connect to a machine to machine messaging server using the MQTT protocol. No additional hardware is required for this step, but you will need to configure some software changes.
+
+Edit the file `sensor/arduino/step7/main.go` and change the following values at the top of the file, then save them:
+
+```
+
+```
+
+Now you can run the code example:
+
+
+```
+tinygo flash -target arduino-nano33 ./sensor/arduino/step7/main.go
+```
