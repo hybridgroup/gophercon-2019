@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/conejoninja/tinydraw"
-	"github.com/conejoninja/tinyfont"
+	"tinygo.org/x/tinydraw"
+	"tinygo.org/x/tinyfont"
 
 	// comes from "github.com/conejoninja/tinyfont/freemono"
 	freemono "../fonts"

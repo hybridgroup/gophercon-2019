@@ -7,14 +7,14 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/conejoninja/tinydraw"
-	"github.com/conejoninja/tinyfont"
+	"tinygo.org/x/tinydraw"
+	"tinygo.org/x/tinyfont"
 
 	// comes from "github.com/conejoninja/tinyfont/freemono"
 	freemono "../fonts"
 	"tinygo.org/x/drivers/buzzer"
 	"tinygo.org/x/drivers/espat"
-	"tinygo.org/x/drivers/espat/mqtt"
+	"tinygo.org/x/drivers/net/mqtt"
 	"tinygo.org/x/drivers/ssd1306"
 )
 
