@@ -10,8 +10,9 @@ import (
 	"tinygo.org/x/tinydraw"
 	"tinygo.org/x/tinyfont"
 
-	// comes from "github.com/conejoninja/tinyfont/freemono"
-	freemono "../fonts"
+	// comes from "tinygo.org/x/tinyfont/freemono"
+	"github.com/hybridgroup/gophercon2019/freemono"
+
 	"tinygo.org/x/drivers/buzzer"
 	"tinygo.org/x/drivers/espat"
 	"tinygo.org/x/drivers/net/mqtt"
@@ -22,6 +23,9 @@ var (
 	dialValue  uint16
 	buttonPush bool
 	touchPush  bool
+	pwm        = machine.TCC0
+	green      = machine.D3
+	channelA   uint8
 
 	uart = machine.UART1
 	tx   = machine.PA22
@@ -33,18 +37,10 @@ var (
 	display ssd1306.Device
 )
 
-// access point info. Change this to match your WiFi connection information.
-const ssid = "YOURSSID"
-const pass = "YOURPASS"
-
 // IP address of the MQTT broker to use. Replace with your own info, if so desired.
 const server = "ssl://test.mosquitto.org:8883"
 
 func main() {
-	doWork()
-}
-
-func doWork() {
 	uart.Configure(machine.UARTConfig{TX: tx, RX: rx})
 	rand.Seed(time.Now().UnixNano())
 
@@ -53,13 +49,10 @@ func doWork() {
 	})
 
 	machine.InitADC()
-	machine.InitPWM()
+	initPWM()
 
 	blue := machine.D12
 	blue.Configure(machine.PinConfig{Mode: machine.PinOutput})
-
-	green := machine.PWM{machine.D10}
-	green.Configure()
 
 	button := machine.D11
 	button.Configure(machine.PinConfig{Mode: machine.PinInput})
@@ -73,7 +66,7 @@ func doWork() {
 	bzr := buzzer.New(bzrPin)
 
 	dial := machine.ADC{machine.A0}
-	dial.Configure()
+	dial.Configure(machine.ADCConfig{})
 
 	// Init esp8266/esp32
 	adaptor = espat.New(uart)
@@ -94,7 +87,7 @@ func doWork() {
 		return
 	}
 
-	opts := mqtt.NewClientOptions(adaptor)
+	opts := mqtt.NewClientOptions()
 	opts.AddBroker(server).SetClientID("tinygo-client-" + randomString(10))
 
 	blue.Low()
@@ -110,7 +103,7 @@ func doWork() {
 
 	for {
 		dialValue = dial.Get()
-		green.Set(dialValue)
+		pwm.Set(channelA, pwm.Top()*uint32(dialValue)/0xffff)
 
 		buttonPush = button.Get()
 		if !buttonPush {
@@ -145,6 +138,21 @@ func doWork() {
 	println("Done.")
 }
 
+func initPWM() {
+	err := pwm.Configure(machine.PWMConfig{})
+	if err != nil {
+		println("failed to configure PWM")
+		return
+	}
+
+	// Configure the channel we'll use as output.
+	channelA, err = pwm.Channel(green)
+	if err != nil {
+		println("failed to configure green channel")
+		return
+	}
+}
+
 func initDisplay() {
 	display = ssd1306.NewI2C(machine.I2C0)
 	display.Configure(ssd1306.Config{
@@ -164,7 +172,7 @@ func handleDisplay() {
 
 		val := strconv.Itoa(int(dialValue))
 		msg := []byte("dial: " + val) // + x)
-		tinyfont.WriteLine(&display, &freemono.Bold9pt7b, 10, 20, msg, black)
+		tinyfont.WriteLine(&display, &freemono.Bold9pt7b, 10, 20, string(msg), black)
 
 		var radius int16 = 4
 		if buttonPush {

@@ -9,8 +9,9 @@ import (
 	"tinygo.org/x/tinydraw"
 	"tinygo.org/x/tinyfont"
 
-	// comes from "github.com/conejoninja/tinyfont/freemono"
-	freemono "../fonts"
+	// comes from "tinygo.org/x/tinyfont/freemono"
+	"github.com/hybridgroup/gophercon2019/freemono"
+
 	"tinygo.org/x/drivers/buzzer"
 	"tinygo.org/x/drivers/ssd1306"
 )
@@ -19,6 +20,9 @@ var (
 	dialValue  uint16
 	buttonPush bool
 	touchPush  bool
+	pwm        = machine.TCC0
+	green      = machine.D3
+	channelA   uint8
 )
 
 func main() {
@@ -29,13 +33,10 @@ func main() {
 	go handleDisplay()
 
 	machine.InitADC()
-	machine.InitPWM()
+	initPWM()
 
 	blue := machine.D12
 	blue.Configure(machine.PinConfig{Mode: machine.PinOutput})
-
-	green := machine.PWM{machine.D10}
-	green.Configure()
 
 	button := machine.D11
 	button.Configure(machine.PinConfig{Mode: machine.PinInput})
@@ -49,11 +50,11 @@ func main() {
 	bzr := buzzer.New(bzrPin)
 
 	dial := machine.ADC{machine.A0}
-	dial.Configure()
+	dial.Configure(machine.ADCConfig{})
 
 	for {
 		dialValue = dial.Get()
-		green.Set(dialValue)
+		pwm.Set(channelA, pwm.Top()*uint32(dialValue)/0xffff)
 
 		buttonPush = button.Get()
 		if !buttonPush {
@@ -70,6 +71,21 @@ func main() {
 		}
 
 		time.Sleep(time.Millisecond * 10)
+	}
+}
+
+func initPWM() {
+	err := pwm.Configure(machine.PWMConfig{})
+	if err != nil {
+		println("failed to configure PWM")
+		return
+	}
+
+	// Configure the channel we'll use as output.
+	channelA, err = pwm.Channel(green)
+	if err != nil {
+		println("failed to configure green channel")
+		return
 	}
 }
 
@@ -90,7 +106,7 @@ func handleDisplay() {
 
 		val := strconv.Itoa(int(dialValue))
 		msg := []byte("dial: " + val) // + x)
-		tinyfont.WriteLine(&display, &freemono.Bold9pt7b, 10, 20, msg, black)
+		tinyfont.WriteLine(&display, &freemono.Bold9pt7b, 10, 20, string(msg), black)
 
 		var radius int16 = 4
 		if buttonPush {
